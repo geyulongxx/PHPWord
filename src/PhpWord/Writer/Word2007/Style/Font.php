@@ -76,11 +76,12 @@ class Font extends AbstractStyle
 
         // Font name/family
         $font = $style->getName();
+        $asciiFont = !empty($style->getAsciiName()) ? $style->getAsciiName() : $font;
         $hint = $style->getHint();
         if ($font !== null) {
             $xmlWriter->startElement('w:rFonts');
-            $xmlWriter->writeAttribute('w:ascii', $font);
-            $xmlWriter->writeAttribute('w:hAnsi', $font);
+            $xmlWriter->writeAttribute('w:ascii', $asciiFont);
+            $xmlWriter->writeAttribute('w:hAnsi', $asciiFont);
             $xmlWriter->writeAttribute('w:eastAsia', $font);
             $xmlWriter->writeAttribute('w:cs', $font);
             $xmlWriter->writeAttributeIf($hint !== null, 'w:hint', $hint);

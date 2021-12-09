@@ -356,7 +356,19 @@ class Font extends AbstractStyle
 
         return $this;
     }
+    public function setAscii($value = null)
+    {
+        $this->asciiName = $value;
 
+        return $this;
+    }
+
+    public function getAsciiName()
+    {
+        return $this->asciiName;
+    }
+
+    private $asciiName;
     /**
      * Get Font Content Type
      *
